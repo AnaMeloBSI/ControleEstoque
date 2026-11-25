@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS controle_estoque
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE controle_estoque;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS itens_estoque (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    codigo_sku VARCHAR(50) NOT NULL,
+    nome VARCHAR(120) NOT NULL,
+    quantidade INT NOT NULL DEFAULT 0,
+    estoque_minimo INT NOT NULL DEFAULT 0
+);
